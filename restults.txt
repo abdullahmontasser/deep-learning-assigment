@@ -1,0 +1,54 @@
+============================================================
+  🌸 Smart Botanical Flower Identifier
+============================================================
+  Device : cpu
+  Classes: 102 flower species
+
+Downloading Oxford Flowers-102 dataset (first run only)...
+100%|██████████| 345M/345M [00:15<00:00, 21.9MB/s]
+100%|██████████| 502/502 [00:00<00:00, 2.03MB/s]
+100%|██████████| 15.0k/15.0k [00:00<00:00, 44.1MB/s]
+  Training   samples: 1020
+  Validation samples: 1020
+  Test       samples: 6149
+
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
+100%|██████████| 44.7M/44.7M [00:00<00:00, 238MB/s]
+✓ ResNet18 loaded with pre-trained ImageNet weights.
+✓ All backbone layers FROZEN.
+✓ New classification head: 512 → 256 → 102 classes.
+
+
+============================================================
+  Stage 1 – Training Head Only
+============================================================
+  Trainable params: 157,542 / 11,334,054 total
+  Epoch  1/3  Train: 1.8%  Val: 5.2%  ⭐
+  Epoch  2/3  Train: 5.6%  Val: 14.7%  ⭐
+  Epoch  3/3  Train: 10.0%  Val: 30.2%  ⭐
+
+  Best validation acc: 30.20%
+
+✓ Unfrozen ResNet18 layer4 (last residual block).
+
+============================================================
+  Stage 2 – Fine-Tuning Last Block
+============================================================
+  Trainable params: 8,551,270 / 11,334,054 total
+  Epoch  1/4  Train: 19.4%  Val: 47.1%  ⭐
+  Epoch  2/4  Train: 35.0%  Val: 60.5%  ⭐
+  Epoch  3/4  Train: 44.5%  Val: 64.7%  ⭐
+  Epoch  4/4  Train: 50.3%  Val: 66.3%  ⭐
+
+  Best validation acc: 66.27%
+
+============================================================
+  📊 Final Test Evaluation
+============================================================
+
+  🌸 Final Test Accuracy: 64.04%
+  Top-1 Accuracy : 64.04%
+  Top-5 Accuracy : 87.35%
+
+  ✅ Best model saved as: best_2_model.pth
+============================================================
